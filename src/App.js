@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { mockSurveyItems } from "./mockData";
+import SurveyItem from "./SurveyItem";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="text-3xl font-bold underline">
+        Choose a survey to earn virual currency
+      </h1>
+      <div className="grid max-w-screen-md justify-center items-center md:grid-cols-2 mr-auto ml-auto mt-6">
+        {mockSurveyItems.map((item, index) => (
+          <SurveyItem key={index} {...item} />
+        ))}
+      </div>
     </div>
   );
 }
